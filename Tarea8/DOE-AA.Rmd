@@ -1,0 +1,62 @@
+---
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+---
+title: "Diseño de Experimentos AA"
+author: "Jesus Emmanuel Ramos Davila"
+date: "2023-03-13"
+output:
+  bookdown::html_document2: default
+---
+
+Para esta seccion usaremos nuestros datos de Ataques al corazon para realizar un Diseño de experimentos.
+Esta seccion incluira **ANOVA para diseños factoriales con 2 factores** , en esta seccion se usaran **efectos fijos** los cuales nostros tenemos el control de los niveles (caso contrario a efectos aleatorios).
+
+
+
+Paso 1: Carga de datos.
+
+```{r CargaDatos}
+library(readr)
+heart <- read_csv("heart.csv")
+head(heart)
+```
+
+
+Para este diseno de experimentos se estudiara la relacion entre la variable chol (Colesterol total en sangre) y dos variables slp (slope) y  (Tipo de angina de pecho ) cp.
+
+Nuestro interes es saber si a un mayor grado de colesterol en sangre y edad existe un cambio en el tipo de angina de pecho reportada.
+
+
+
+Antes de realizar el experimento , debemos de revisar si el diseño es **balanceado**, esto quiere decir si todas las muestras son del mismo tamaño.
+
+```{r Step1}
+heart$cp <- as.factor(heart$cp)
+heart$slp <- as.factor(heart$slp)
+model<-lm(chol ~ cp * slp,data=heart)
+replications(model,data=heart)
+(isBalanced=!is.list(replications(model, data=heart)))
+```
+
+**Observaciones:** En este conjunto de datos los tipos de angina de pecho se encuentran desbalanceados.
+
+
+## Diseno de experimento ANOVA
+
+Aunque sabemos que nuestro conjunto de datos no es **balanceado**. Revisemos con anova si existe un interaccion entre variable de respuesta e interacciones entre las variables dependientes.
+
+```{r ANOVAUNBALANCED}
+heart.aov = aov(chol ~ cp * slp, data = heart)
+summary(heart.aov)
+```
+
+Resultados: Se observo que no existe relacion entre el tipo de angina de pecho (cp) y slope (slp) con nuestra variable de respuesta chol (Colesterol), esto en previous analisis de seleccion de caracteristicas y regressiones no se observo alguna relacion entre ellas , tambien no se observo alguna interaccion entre las variables **cp y slp** , lo cual aunque se podria asumir que dado slp (slope) es un _estudio de electrocardiograma_ no existe relacion alguna el tipo de angina de pecho con el resultado de slp.
+
+
+
+
