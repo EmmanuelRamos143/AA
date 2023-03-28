@@ -46,7 +46,7 @@
 \IEEEtitleabstractindextext{%
 \begin{abstract}
 Enfermedades cardiovasculares son una de las principales causas de muerte global, con millones de fallecimientos año tras año, Las enfermedades cardiovasculares son un grupo de desórdenes del corazón y los vasos sanguíneos no existe causa exacta para este tipo de enfermedades. Existen algunos patrones de síntomas los cuales están muy asociados a tener este tipo de enfermedades. Actualmente no existen demasiadas investigaciones con respecto a el análisis de grupos y algoritmos de asociación para este tipo de enfermedades.
-En esta sección se realizara un estudio usando el algoritmo FCM (Fuzzy C Means) Clustering, para determinar el riesgo de un ataque al corazón, en este estudio se realizara un prueba usando 303 observaciones se revisara el desempeño y la precisión con respecto a otro algoritmo ya conocido.
+En esta sección se realizara un estudio usando el algoritmo FCM (\textit{Fuzzy C Means}) \textit{Clustering}, para determinar el riesgo de un ataque al corazón, en este estudio se realizara un prueba usando 303 observaciones se revisara el desempeño y la precisión con respecto a otro algoritmo ya conocido.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -96,7 +96,7 @@ En esta sección se realizara un estudio usando el algoritmo FCM (Fuzzy C Means)
 \section{Introducción}
 \label{sec:introduction}
 
-Enfermedades cardiovasculares son una especie que se están presentando con mayor frecuencia y estas frecuentemente suceden en fallecimientos. La Organización Mundial de la Salud ha estimado alrededor de 12 millones de muertes alrededor del mundo anualmente, debido a este numero avances en la medicina en las últimas décadas habilito la identificación de factores de riesgo que podrían contribuir en este tipo de enfermedades cardiovasculares. La causa más común en este tipo de enfermedades es el estrechamiento o bloqueo de las arterias coronarias. Los vasos que transportan sangre al corazón mismo, Este es llamado enfermedad arteriopatía coronaria y esta sucede comúnmente con el paso del tiempo. Esta es una de las principales causas por las cuales las personas sufren ataques al corazón, Es por eso que un bloqueo que no es tratado dentro de las primeras horas causa que el musculo del corazón muera. Diagnósticos médicos son una importante, pero a la vez una tarea complicada y su automatización podría ser muy útil. Desafortunadamente no todos los doctores están especializados en esta área y no se tiene en algunos casos y no se tienen los mismos recursos médicos. Es por eso que para utilizar el conocimiento de diferentes especialistas y los datos clínicos de pacientes para facilitar el proceso de diagnóstico es considerado muy valioso ya que su integración en tomas de decisiones medicas podría reducir los errores médicos, mejorar la seguridad del paciente y reducir practicas no deseadas.
+Enfermedades cardiovasculares son una especie que se están presentando con mayor frecuencia y estas frecuentemente suceden en fallecimientos. La Organización Mundial de la Salud ha estimado alrededor de 12 millones de muertes alrededor del mundo anualmente \cite{who_2022_cardiovascular}, debido a este numero avances en la medicina en las últimas décadas habilito la identificación de factores de riesgo que podrían contribuir en este tipo de enfermedades cardiovasculares. La causa más común en este tipo de enfermedades es el estrechamiento o bloqueo de las arterias coronarias. Los vasos que transportan sangre al corazón mismo, Este es llamado enfermedad arteriopatía coronaria y esta sucede comúnmente con el paso del tiempo. Esta es una de las principales causas por las cuales las personas sufren ataques al corazón, Es por eso que un bloqueo que no es tratado dentro de las primeras horas causa que el musculo del corazón muera. Diagnósticos médicos son una importante, pero a la vez una tarea complicada y su automatización podría ser muy útil. Desafortunadamente no todos los doctores están especializados en esta área y no se tiene en algunos casos y no se tienen los mismos recursos médicos. Es por eso que para utilizar el conocimiento de diferentes especialistas y los datos clínicos de pacientes para facilitar el proceso de diagnóstico es considerado muy valioso ya que su integración en tomas de decisiones medicas podría reducir los errores médicos, mejorar la seguridad del paciente y reducir practicas no deseadas.
 
 \section{Metodología}
 \label{sec:metodologia}
@@ -104,17 +104,17 @@ Enfermedades cardiovasculares son una especie que se están presentando con mayo
 
 \subsection{Fuzzy C Means Clustering}
 
-El principal objetivo de esta búsqueda es implementar el algoritmo de Fuzzy C Means Clustering usando nuestros datos de pacientes, esto para poder usarse en el soporte de toma de decisiones, por lo tanto, se desarrolla un modelo Fuzzy C Means para predecir los ataques al corazón.
-El algoritmo Fuzzy C-Means Clustering fue desarrollado en 1981 este es un extendido del algoritmo K-Means Clustering,  FCM (Fuzzy C-Means) es un algoritmo no supervisado que es aplicado hacia un rango muy amplio de problemas conectados con análisis de características , clustering y clasificación. FCM también es usado en otros campos además de la medicina, tales como agricultura, ingeniería, astronomía, química, análisis de imágenes.
-FCM es una técnica de clustering en la cual un conjunto de datos es agrupado en n-clústeres en la cual cada punto de datos esta relacionado a un clúster el cual tendrá un alto grado de pertenencia hacia este punto siendo así que los puntos de datos que tengan un bajo grado de pertenencia hacia este clúster estarán más alejados de este.
+El principal objetivo de esta búsqueda es implementar el algoritmo de \textit{Fuzzy C Means Clustering} usando nuestros datos de pacientes, esto para poder usarse en el soporte de toma de decisiones, por lo tanto, se desarrolla un modelo Fuzzy C Means para predecir los ataques al corazón.
+El algoritmo Fuzzy C-Means Clustering fue desarrollado en 1981 este es un extendido del algoritmo \textit{K-Means Clustering} \cite{articlePredictingFuzzyCMeans}.  FCM (\textit{Fuzzy C-Means}) es un algoritmo no supervisado que es aplicado hacia un rango muy amplio de problemas conectados con análisis de características , agrupamiento y clasificación. FCM también es usado en otros campos además de la medicina, tales como agricultura, ingeniería, astronomía, química, análisis de imágenes.
+FCM es una técnica de agrupamiento en la cual un conjunto de datos es agrupado en n-clústeres en la cual cada punto de datos esta relacionado a un grupo el cual tendrá un alto grado de pertenencia hacia este punto siendo así que los puntos de datos que tengan un bajo grado de pertenencia hacia este grupo estarán más alejados de este.
 
 Pasos de algoritmo FCM
 \begin{enumerate}
-  \item Inicializar la matriz de \begin{math}\mu_{i_j} U\end{math} \\
-  \item Actualizar \begin{math} C_i \end{math} \\
+  \item Inicializar la matriz de \begin{math}\mu_{i_j} U\end{math}. \\
+  \item Actualizar \begin{math} C_i \end{math}. \\
         \begin{math}C_i = \frac{\sum_i=1^N  \mu_{i_j}^m X_j} { \sum_j=1^N  \mu_{i_j}^m X_j} \end{math}
   
-  \item Actualizar \begin{math}\mu_{i_j} \end{math} \\
+  \item Actualizar \begin{math}\mu_{i_j} \end{math}. \\
          \begin{math}\mu_{i_j} = \frac{1} {\sum_k=1^C ( \frac{\vert \vert X_j - C_i \vert\vert }{\vert \vert X_j - C_k \vert\vert} )} \frac{2}{m-1}\end{math} \\
   \item Si el cambio de U entre las dos iteraciones es muy bajo, entonces se detiene en otro caso sigue el paso 2.       
          
@@ -157,9 +157,9 @@ MAE toma el promedio de errores absolutos de un grupo de predicciones y observac
 Interpretación de MAE: su interpretación es simple ya que si su unidad esta mas cerca de el valor 0 mas preciso es el modelo.
 
 
-\begin{equation}
-\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 exng  + \hat{\beta}_2 cp  + \hat{\beta}_3 thalla  + \hat{\beta}_4 caa  + \hat{\beta}_5 thall + \hat{\epsilon}_i
-\end{equation}
+\begin{multline}
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 \text{exng}  + \\ \hat{\beta}_2 \text{cp}  + \hat{\beta}_3 \text{thalla}  +  \hat{\beta}_4 \text{caa} \\ + \hat{\beta}_5 \text{thall} +  \hat{\epsilon}_i
+\end{multline}
 
 
 \subsection{Clasificación}
@@ -177,11 +177,11 @@ Para nuestro conjunto de datos los modelos de clasificación son la mejor opció
 \section{Adquisición de datos}
 \label{sec:adquisiciondatos}
 
-Dentro de este análisis el conjunto de datos es obtenido de UC Irvine \cite{UCI} , Los datos han sido recolectados de 303 pacientes de un subconjunto conjunto de datos que contiene 13 columnas y su variable de respuesta la cual es si el si el paciente presenta enfermedad del corazón o no. véase cuadro: \ref{table:comparative}.
+Dentro de este análisis el conjunto de datos es obtenido de UC Irvine \cite{UCI}, Los datos han sido recolectados de 303 pacientes de un subconjunto conjunto de datos que contiene 13 columnas y su variable de respuesta la cual es si el si el paciente presenta enfermedad del corazón o no. véase cuadro: \ref{table:comparative}.
 
 \section{Diseño de Experimentos}
 
-El Diseño de Experimentos (DoE), es una de las tecnicas estadisticas que se basa en estudiar el efecto de uno o mas factores sobre la media de una variable continua, Las suposiciones que se plantean es:
+El Diseño de Experimentos, es una de las tecnicas estadisticas que se basa en estudiar el efecto de uno o mas factores sobre la media de una variable continua, Las suposiciones que se plantean es:
 
 \begin{equation}
 H_0 : \mu_1 = \mu_2 ... = \mu_i
@@ -210,9 +210,9 @@ Se observo que el desempeño de nuestros modelos no fue significativo aunque el 
 
 \section{Resultados}
 
-En esta seccion se incluyeron los resultados del compendio de modelos utilizados tanto \textbf{Clustering , Clasificación y Regresión}, En el cual la mayoría de los modelos utilizados se encontraron artículos relacionados a este tipo de predicción de ataques al corazón, También se incluyeron notas para futuras revisiones para nuestro modelo a fin de mejorar nuestra predicción. En resumen obtuvimos desempeños significativos en los 3 tipos de algoritmos antes mencionados.
+En esta sección se incluyeron los resultados del compendio de modelos utilizados tanto \textbf{Agrupamiento , Clasificación y Regresión}, En el cual la mayoría de los modelos utilizados se encontraron artículos relacionados a este tipo de predicción de ataques al corazón, También se incluyeron notas para futuras revisiones para nuestro modelo a fin de mejorar nuestra predicción. En resumen obtuvimos desempeños significativos en los tres tipos de algoritmos antes mencionados.
 
-\subsection{Fuzzy C Means Clustering}
+\subsection{\textit{Fuzzy C Means Clustering}}
 Se aplico el modelo FCM usando las 303 observaciones a fin de encontrar los mejores clústeres que representen nuestros datos.
 
 \begin{figure}[ht]
@@ -222,7 +222,7 @@ Se aplico el modelo FCM usando las 303 observaciones a fin de encontrar los mejo
     \label{fig:fcm_elbow}
 \end{figure}
 
-Los dados obtenidos en la métrica de evaluación fueron \textbf{2} clústeres como los óptimos en una iteración de 1 hasta 9 clústeres, representado claramente en con nuestra grafica de codo. \autoref{fig:fcm_elbow} La métrica de evaluación para este modelo fue su \textbf{coeficiente de particiones de fuzzy (FCP)} la cual marco un notable porcentaje en 2 clusters.
+Los dados obtenidos en la métrica de evaluación fueron \textbf{2} clústeres como los óptimos en una iteración de 1 hasta 9 clústeres, representado claramente en con nuestra grafica de codo. \autoref{fig:fcm_elbow} La métrica de evaluación para este modelo fue su \textbf{coeficiente de particiones de fuzzy (FCP)} la cual marcó un notable porcentaje en 2 grupos.
 
 
 \subsection{Regresión Lineal}
@@ -232,7 +232,7 @@ Se aplico un modelo de regresión lineal el cual obtuvimos una regresión modera
 
 \subsection{Clasificación}
 
-Se aplicaron 2 modelos de clasificación de los cuales se encontró trabajos relacionados con predicción de ataques al corazón \cite{Pal_2021} \cite{8684835}, para nuestro conjunto de datos se aplico un preprocesa-miento usando PCA tomando solo los 3 principales componentes y aplicándolos a cada uno de los modelos. Nuestro modelo tuvo un \textbf{accurary} del 83\verb|%|, el modelo con mejor desempeño fue \textbf{Support Vector Classifier SVC}.
+Se aplicaron dos modelos de clasificación de los cuales se encontró trabajos relacionados con predicción de ataques al corazón \cite{Pal_2021} \cite{8684835}, para nuestro conjunto de datos se aplico un preprocesa-miento usando PCA tomando solo los tres principales componentes y aplicándolos a cada uno de los modelos. Nuestro modelo tuvo un \textbf{accurary} del 83\verb|%|, el modelo con mejor desempeño fue \textbf{Support Vector Classifier (SVC)}.
 
 \begin{figure}[ht]
     \centering
@@ -252,10 +252,10 @@ Los resultados de los modelos fueron.
     \hline
        Modelo & Precisión  \\
    \hline
-    \emph{SVM classifier} &  83.60\verb|%|  \\
+    \textit{SVM classifier} &  83.60\verb|%|  \\
 
     \hline
-    \emph{Random Forest classifier} &  80.32\verb|%|  \\
+    \textit{Random Forest classifier} &  80.32\verb|%|  \\
    \hline
     \end{tabular}
     \end{center}
@@ -267,9 +267,9 @@ Dada la precisión de los modelo podemos observar que el modelo SVM tuvo una mej
 
 \section{Discusión}
 
-\subsection{Fuzzy C Means Clustering}
+\subsection{\textit{Fuzzy C Means Clustering}}
 
-Se observo un buen desempeño con respecto a el calculo del mejor número de clústeres siendo de 300ms aproximadamente sin la funcionalidad del multithreading. Los valores de las métricas que usa el modelo FCM nos permitió claramente ver el número de clústeres.  Una de las comparaciones a realizar a futuro seria comparar con un algoritmo tradicional tal como K-Means o K-Mediods a fin de comparar tiempo y si es tan notable el encuentro del mejor clúster.
+Se observo un buen desempeño con respecto a el calculo del mejor número de clústeres siendo de 300ms aproximadamente sin la funcionalidad del \textit{multithreading}. Los valores de las métricas que usa el modelo FCM nos permitió claramente ver el número de clústeres.  Una de las comparaciones a realizar a futuro seria comparar con un algoritmo tradicional tal como \textit{K-Means} o \textit{K-Mediods} a fin de comparar tiempo y si es tan notable el encuentro del mejor clúster.
 
 \subsection{Linear Regression}
 
@@ -278,7 +278,7 @@ Se observo un buen desempeño usando un modelo de regresión simple usando ciert
 
 \subsection{Clasificación}
 
-En esta sección se aplicaron 2 modelos de clasificación basados en investigaciones realizadas y cada uno de ellos obtuvo un buen desempeño, para nuestro caso aplicamos una parte de pre-procesamiento con PCA el cual no arrojo un mejor modelo de 83.6\verb|%|, una de las partes que se puede mejorar en este modelo es agregar nuevas variables al modelo con tal de mejorar el porcentaje de precisión, Una de las partes que no se comento es que computacional mente este modelo con mejor desempeño es mas robusto, siendo así podríamos realizar una nueva iteración teniendo en cuenta el modelo Random Forest como opción. Dado que la predicción de ataques al corazón debe de ser sensible a los errores de \textbf{tipo 2}, este modelo redujo estos tipo de errores al solo clasificar incorrectamente 3 observaciones, Un tipo de mejora al desempeño de este modelo podría ser incluir mas componentes de PCA a fin de tener mas varianza explicada y aumentar nuestro porcentaje de desempeño.
+En esta sección se aplicaron 2 modelos de clasificación basados en investigaciones realizadas y cada uno de ellos obtuvo un buen desempeño, para nuestro caso aplicamos una parte de pre-procesamiento con PCA el cual no arrojo un mejor modelo de 83.6\verb|%|, una de las partes que se puede mejorar en este modelo es agregar nuevas variables al modelo con tal de mejorar el porcentaje de precisión. Una de las partes que no se comento es que computacional mente este modelo con mejor desempeño es mas robusto, siendo así podríamos realizar una nueva iteración teniendo en cuenta el modelo \textit{Random Forest} como opción. Dado que la predicción de ataques al corazón debe de ser sensible a los errores de \textbf{tipo 2}, este modelo redujo estos tipo de errores al solo clasificar incorrectamente tres observaciones. Un tipo de mejora al desempeño de este modelo podría ser incluir mas componentes de PCA a fin de tener mas varianza explicada y aumentar nuestro porcentaje de desempeño.
 
 \begin{table}[th]
 \centering
